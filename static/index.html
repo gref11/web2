@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Задание 3</title>
+    <link rel="stylesheet" href="/static/src/css/style.css">
+    <script src="/static/src/js/index.js" defer></script>
+</head>
+<body>
+    <div class="parallax-container top-container">
+        <img class="parallax" id="parallax2" src="/static/src/img/parallax2.png" alt="">
+        <img class="parallax" id="parallax3b" src="/static/src/img/parallax3b.png" alt="">
+        <img class="parallax" id="parallax3a" src="/static/src/img/parallax3a.png" alt="">
+    </div>
+    <header>
+        <div class="title-cont">
+            <img id="logo" src="/static/src/img/logo1.png" alt="">
+            <h1 id="title">Задание 3</h1>
+        </div>
+        <nav>
+            <div class="nav-item" id="menu">
+                <span>Меню ∨</span>
+                <div id="menu-list" class="hidden">
+                    <a href="#registr"><span>Регистрация</span></a>
+                </div>
+            </div>
+            <a href="https://github.com/gref11" target="_blank" class="nav-item">
+                <span>GitHub</span>
+            </a>
+            <a href="https://vk.com/grefalb" target="_blank" class="nav-item">
+                <span>VK</span>
+            </a>
+        </nav>
+    </header>
+    <section class="container">
+        <article id="registr">
+            <h2>Регистрация</h2>
+            <form action="/user/add/" method="post" id="regForm" class="vertical-container">
+                <label for="fullName">ФИО:</label>
+                <input class="w16" type="text" id="fullName" name="fullName" required>
+                
+                <label for="email">Email:</label>
+                <input class="w16" type="email" id="email" name="email" required>
+                
+                <label for="phone">Телефон:</label>
+                <input class="w16" type="tel" id="phone" name="phone" required>
+                
+                <label for="date">Дата рождения </label>
+                <input class="w16" type="date" name="date" id="date" required>
+
+                <label for="sex">Пол </label>
+                <select class="w16" name="sex" id="sex" required>
+                    <option value="male">Мужской</option>
+                    <option value="female">Женский</option>
+                </select>
+                <label for="lang">Любимый язык программирования</label>
+                <select class="w16" id="lang" name="lang" multiple="multiple" required>
+                    <option value="GoLang">GoLang</option>
+                    <option value="C">C</option>
+                    <option value="C++">C++</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="Haskel">Haskel</option>
+                    <option value="Clojure">Clojure</option>
+                    <option value="Prolog">Prolog</option>
+                    <option value="Scala">Scala</option>
+                </select>
+                <label for="bio">Биография</label>
+                <textarea class="w32" name="bio" id="bio" required></textarea>
+
+                <label>
+                    <input type="checkbox" id="agreement" name="agreement" required>
+                    Согласен с политикой обработки персональных данных
+                </label>
+
+                <button class="w16" type="submit">Отправить</button>
+            </form>
+            <script>
+                
+                </script>
+            <div id="responseMessage"></div>
+        </article>
+    </section>
+    <footer>
+        <img class="footer-bg" src="/static/src/img/parallax4.png" alt="">
+        <span>(c) Альберт Греф</span>
+    </footer>
+
+    
+</body>
+</html>

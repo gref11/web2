@@ -1,0 +1,450 @@
+body {
+    margin: 0;
+    background-image: url('../img/parallax1.png');
+    background-size: auto 100%;
+    font-family: 'Franklin Gothic Medium';
+    overflow-x: hidden;
+}
+
+.parallax-container {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    overflow: hidden;
+}
+
+header {
+    padding: 20px 40px;
+    background-color: rgba(21, 71, 148, 0.8);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#logo {
+    height: 60px;
+    float: left;
+    margin-right: 10px;
+}
+
+#logo:hover {
+    cursor: pointer;
+}
+
+#title {
+    color: #f9ec88;
+    margin: 8px 0;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    max-width: 960px;
+    margin: 120px auto 140px;
+    background-image: url(../img/bg-main.png);
+    background-repeat: repeat-y;
+    background-size: 100%;
+    background-origin: border-box;
+    padding: 0 5%;
+    image-rendering: pixelated;
+    color: #7c3e08;
+    flex-direction: column;
+}
+
+.container::before{
+    display: block;
+    height: 90px;
+    width: 100%;
+    background-image: url(../img/bg-header.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: bottom;
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+}
+
+.container::after{
+    display: block;
+    height: 110px;
+    width: 100%;
+    background-image: url(../img/bg-footer.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top;
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+.container a {
+    color: #7c3e08;
+}
+
+.parallax {
+    position: absolute;
+    width: 100%;
+}
+
+.top-container .parallax {
+    top: 0;
+    opacity: 50%;
+}
+
+.bottom-container .parallax {
+    bottom: 0;
+}
+
+#parallax3a {
+    top: 0%;
+    width: 120%;
+    animation: slideina 120s linear 0s infinite normal none;
+}
+
+#parallax3b {
+    top: 0%;
+    width: 200%;
+    animation: slideinb 100s linear 0s infinite normal none;
+}
+
+@keyframes slideina {
+    from {
+      transform: translateX(-100%);
+    }
+  
+    to {
+        transform: translateX(80%);
+    }
+}
+  
+@keyframes slideinb {
+    from {
+      transform: translateX(-30%);
+    }
+  
+    to {
+        transform: translateX(50%);
+    }
+}
+
+.title-cont {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+header nav {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+    color: white;
+    flex-direction: column;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-item {
+    flex-basis: 33%;
+    transition: 200ms;
+    color: white;
+}
+
+.nav-item:hover, nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    color: #f9ec88;
+}
+
+.nav-item span {
+    display: block;
+    font-size: 24px;
+    width: fit-content;
+    margin: 28px auto;
+    text-align: center;
+}
+
+#menu {
+    position: relative;
+}
+
+#menu-list {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    z-index: 1;
+    background-color: #133e89;
+    transition: 200ms;
+    transform-origin: top;
+    color: white;
+}
+
+#menu-list a {
+    transition: 200ms;
+}
+
+.hidden {
+    transform: scaleY(0);
+    z-index: -1;
+}
+
+.none {
+    display: none;
+}
+
+footer {
+    position: relative;
+}
+
+.footer-bg {
+    width: 100%;
+}
+
+footer span {
+    display: inline-block;
+    position: absolute;
+    bottom: 1em;
+    padding: 0.5em 0.8em;
+    left: 1em;
+    background-color: rgba(38, 86, 8, 0.628);
+    border-radius: 0.4em;
+}
+
+table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+    background-color: #d99a6c;
+}
+
+td, th {
+    border: 1px solid black;
+    width: 5em;
+    text-align: center;
+    padding: 0.5em;
+}
+
+td img {
+    height: 4em;
+}
+
+th img {
+    height: 2em;
+}
+
+tbody tr:nth-child(2n - 1) td{
+    background-color: #ecb176;
+}
+
+input, select, textarea, button { color: #7c3e08;
+    border-radius: 0.4em;
+    border: 2px solid #7c3e08;
+    background-color: #ecb176;
+    padding: 0.3em;
+    margin: 0.3em 0;
+    font-weight: bold;
+}
+
+input[name="numb"] {
+    width: 3em;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.w16 {
+    width: 16em;
+}
+
+.w32 {
+    width: 32em;
+}
+
+input:focus, select:focus, textarea:focus, button:focus {
+    outline: 1px solid #ecb176;
+}
+
+option:checked {
+    background-color: #d99a6c;
+}
+
+.card, .big-card {
+    display: block;
+    background-color: rgba(236, 177, 118, 0.6);
+    width: 5em;
+    text-align: center;
+    padding: 0.5em;
+    border-radius: 1em;
+}
+
+.big-card {
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.card-img {
+    height: 2em;
+}
+
+.big-card-img {
+    height: 6em;
+}
+
+input[type="radio"]:checked + label {
+    background-color: rgba(217, 154, 108, 0.6);
+}
+
+.card-list {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.gallery {
+    display: flex;
+    width: 80%;
+    background-color: rgba(236, 177, 118, 0.6);
+    padding: 1em;
+    align-items: center;
+    border-radius: 1em;
+}
+
+.gallery .gorizontal-container {
+    align-items: center;
+    width: fit-content;
+    justify-content: space-around;
+}
+
+.gallery-container {
+    width: 80%;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 0.5em;
+}
+
+.gallery-images img {
+    width: 33.33%; /* Для отображения трех изображений на экране */
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.arrow {
+    height: fit-content;
+    width: fit-content;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 24px;
+}
+
+.pager {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.gorizontal-container {
+    display: flex;
+    gap: 0.5em;
+}
+
+.vertical-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    margin: 15% auto;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+#popup .close {
+    width: fit-content;
+    float: right;
+    font-weight: bold;
+    position: absolute;
+    top: 1.5em;
+    right: 3em;
+}
+
+#popup .close:hover,
+#popup .close:focus {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#popup label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+#responseMessage {
+    margin-top: 15px;
+    font-weight: bold;
+    color: green; /* Цвет сообщения об успешной отправке */
+}
+
+@media (max-width: 800px) {
+    .gallery img {
+        width: 100%; /* Для отображения одного изображения на экране */
+    }
+}
+
+@media screen and (min-width: 800px){
+
+    header nav {
+        display: flex;
+        height: 100%;
+        width: 40%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        justify-content: space-evenly;
+        color: white;
+        flex-direction: row;
+    }
+
+    .title-cont {
+        width: 40%;
+        max-width: 300px;
+    }
+
+}

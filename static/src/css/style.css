@@ -448,3 +448,14 @@ input[type="radio"]:checked + label {
     }
 
 }
+
+.field-error {
+    border: 2px solid #d32f2f !important;
+    border-radius: 4px;
+    
+    color: #d32f2f !important;
+}
+
+.message-error {
+    color: #d32f2f;
+}

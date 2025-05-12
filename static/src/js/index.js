@@ -34,52 +34,52 @@ function hideMenu(e) {
 document.addEventListener("click", hideMenu);
 menu.addEventListener("click", clickMenu);
 
-loadFormData();
+// loadFormData();
 
-regForm.onsubmit = async function(e) {
-    e.preventDefault();
+// regForm.onsubmit = async function(e) {
+//     e.preventDefault();
 
-    const form = e.target;
-    const data = {
-        fullName: form.fullName.value,
-        email: form.email.value,
-        phone: form.phone.value,
-        date: form.date.value,
-        sex: form.sex.value,
-        lang: Array.from(form.lang.selectedOptions).map(o => o.value),
-        bio: form.bio.value,
-        agreement: form.agreement.checked
-    };
+//     const form = e.target;
+//     const data = {
+//         fullName: form.fullName.value,
+//         email: form.email.value,
+//         phone: form.phone.value,
+//         date: form.date.value,
+//         sex: form.sex.value,
+//         lang: Array.from(form.lang.selectedOptions).map(o => o.value),
+//         bio: form.bio.value,
+//         agreement: form.agreement.checked
+//     };
 
-    try {
-        const response = await fetch('/user/add/', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: { 
-                'Content-Type': 'application/json',
-                'Accept': 'text/plain'
-            }
-        });
+//     try {
+//         const response = await fetch('/user/add/', {
+//             method: 'POST',
+//             body: JSON.stringify(data),
+//             headers: { 
+//                 'Content-Type': 'application/json',
+//                 'Accept': 'text/plain'
+//             }
+//         });
 
-        const responseText = await response.text();
+//         const responseText = await response.text();
 
-        if (!response.ok) throw new Error(responseText);
+//         if (!response.ok) throw new Error(responseText);
 
-        // const result = await response.json();
-        console.log(response.body)
-        responseMessage.textContent = responseText;
-        responseMessage.style.color = 'green';
+//         // const result = await response.json();
+//         console.log(response.body)
+//         responseMessage.textContent = responseText;
+//         responseMessage.style.color = 'green';
 
-        saveFormData();
-        // contactForm.reset();
+//         saveFormData();
+//         // contactForm.reset();
 
-    } catch (error){ 
-        responseMessage.textContent = 'Ошибка отправки: ' + error.message;
-        responseMessage.style.color = 'red';
-        console.log('Response status:', response.status);
-        console.log('Response body:', error.message);
-    }
-}
+//     } catch (error){ 
+//         responseMessage.textContent = 'Ошибка отправки: ' + error.message;
+//         responseMessage.style.color = 'red';
+//         console.log('Response status:', response.status);
+//         console.log('Response body:', error.message);
+//     }
+// }
 
 
 function saveFormData() {

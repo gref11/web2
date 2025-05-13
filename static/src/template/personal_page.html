@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
-    <title>Задание 3</title>
+    <title>Задание 5</title>
     <link rel="stylesheet" href="/static/src/css/style.css">
     <script src="/static/src/js/index.js" defer></script>
 </head>
@@ -16,13 +16,13 @@
     <header>
         <div class="title-cont">
             <img id="logo" src="/static/src/img/logo1.png" alt="">
-            <h1 id="title">Задание 3</h1>
+            <h1 id="title">Задание 5</h1>
         </div>
         <nav>
             <div class="nav-item" id="menu">
                 <span>Меню ∨</span>
                 <div id="menu-list" class="hidden">
-                    <a href="#registr"><span>Регистрация</span></a>
+                    <a href="#registr"><span>Профиль</span></a>
                 </div>
             </div>
             <a href="https://github.com/gref11" target="_blank" class="nav-item">
@@ -35,7 +35,7 @@
     </header>
     <section class="container">
         <article id="registr">
-            <h2>Регистрация</h2>
+            <h2>Профиль</h2>
             {{ if .Errors }}
                 <div class="message-error">
                     <h3>Ошибки заполнения формы:</h3>
@@ -80,13 +80,7 @@
                 </select>
                 <label for="bio">Биография</label>
                 <textarea class="w32" name="bio" id="bio" required>{{ .Bio }}</textarea>
-
-                <label>
-                    <input type="checkbox" id="agreement" name="agreement" required>
-                    Согласен с политикой обработки персональных данных
-                </label>
-
-                <button class="w16" type="submit">Отправить</button>
+                <button class="w16" type="submit">Сохранить</button>
             </form>
             <script>
                 

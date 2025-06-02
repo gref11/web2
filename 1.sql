@@ -128,3 +128,6 @@ where e.salary < avg_sal.avg_salary;
 -- 7
 select *
 from
+
+
+insert into user_auth(user_id, login, password_hash) values (?, ?, ?);

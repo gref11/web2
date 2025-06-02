@@ -1,6 +1,6 @@
 package models
 
-type registrationData struct {
+type RegistrationData struct {
 	Name   string
 	Email  string
 	Tel    string

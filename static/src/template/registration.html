@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, User-scalable=no, maximum-scale=1.0">
     <title>Задание 5</title>
     <link rel="stylesheet" href="/static/src/css/style.css">
     <script src="/static/src/js/index.js" defer></script>
@@ -46,7 +46,7 @@
                     </ul>
                 </div>
             {{ end }}
-            <form action="/user/add/" method="post" id="regForm" class="vertical-container">
+            <form action="/User/add/" method="post" id="regForm" class="vertical-container">
                 <label for="fullName">ФИО:</label>
                 <input class="w16 {{ if .Errors.Name }}field-error{{ end }}" type="text" id="fullName" name="fullName" value="{{ .Name }}" required>
                 

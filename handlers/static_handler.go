@@ -2,16 +2,37 @@ package handlers
 
 import (
 	"net/http"
-	"os/filepath"
+	"os"
+	"path/filepath"
 	"strings"
 )
 
-func StaticHandler(w http.ResponseWriter, r *http.Request) {
-	path := filepath.Join(".", "static", r.URL.Path[1:])
+func (h *Handler) StaticHandler(w http.ResponseWriter, r *http.Request) {
+	// Базовый каталог со статикой
+	staticDir := filepath.Join(".", "static")
 
-	if !strings.HasPrefix(filepath.Clean(path), filepath.Clean(filepath.Join(".", "static"))) {
-		http.Error(w, "Forbidden", http.StatusForbidden)
+	// Получаем путь к файлу и нормализуем его
+	requestPath := r.URL.Path
+	if requestPath == "/" {
+		requestPath = "/index.html"
 	}
 
-	http.ServeFile(w, r, path)
+	// Строим полный путь к файлу
+	fullPath := filepath.Join(staticDir, requestPath)
+	fullPath = filepath.Clean(fullPath)
+
+	// Проверяем, что путь находится внутри staticDir
+	if !strings.HasPrefix(fullPath, filepath.Clean(staticDir)+string(filepath.Separator)) {
+		http.Error(w, "Forbidden", http.StatusForbidden)
+		return
+	}
+
+	// Проверяем существование файла
+	if _, err := os.Stat(fullPath); os.IsNotExist(err) {
+		http.NotFound(w, r)
+		return
+	}
+
+	// Отдаём файл
+	http.ServeFile(w, r, fullPath)
 }

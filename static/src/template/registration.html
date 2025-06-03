@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, User-scalable=no, maximum-scale=1.0">
-    <title>Задание 5</title>
+    <title>Stardew</title>
     <link rel="stylesheet" href="/static/src/css/style.css">
     <script src="/static/src/js/index.js" defer></script>
 </head>
@@ -16,7 +16,7 @@
     <header>
         <div class="title-cont">
             <img id="logo" src="/static/src/img/logo1.png" alt="">
-            <h1 id="title">Задание 5</h1>
+            <h1 id="title">Stardew</h1>
         </div>
         <nav>
             <div class="nav-item" id="menu">
@@ -25,11 +25,11 @@
                     <a href="#registr"><span>Регистрация</span></a>
                 </div>
             </div>
-            <a href="https://github.com/gref11" target="_blank" class="nav-item">
-                <span>GitHub</span>
+            <a href="/login" target="_blank" class="nav-item">
+                <span>Войти</span>
             </a>
-            <a href="https://vk.com/grefalb" target="_blank" class="nav-item">
-                <span>VK</span>
+            <a href="/signup" target="_blank" class="nav-item">
+                <span>Зарегистрироваться</span>
             </a>
         </nav>
     </header>
@@ -56,9 +56,6 @@
                 <label for="phone">Телефон:</label>
                 <input class="w16 {{ if .Errors.Tel }}field-error{{ end }}" type="tel" id="phone" name="phone" value="{{ .Tel }}" required>
                 
-                <label for="date">Дата рождения </label>
-                <input class="w16" type="date" name="date" id="date" value="{{ .Date }}" required>
-
                 <label for="sex">Пол </label>
                 <select class="w16" name="sex" id="sex" required>
                     <option value="male" {{ if eq .Sex "male" }}selected{{ end }}>Мужской</option>

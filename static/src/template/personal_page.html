@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, User-scalable=no, maximum-scale=1.0">
-    <title>Задание 5</title>
+    <title>Stardew</title>
     <link rel="stylesheet" href="/static/src/css/style.css">
     <script src="/static/src/js/index.js" defer></script>
 </head>
@@ -16,7 +16,7 @@
     <header>
         <div class="title-cont">
             <img id="logo" src="/static/src/img/logo1.png" alt="">
-            <h1 id="title">Задание 5</h1>
+            <h1 id="title">Stardew</h1>
         </div>
         <nav>
             <div class="nav-item" id="menu">
@@ -25,67 +25,70 @@
                     <a href="#registr"><span>Профиль</span></a>
                 </div>
             </div>
-            <a href="https://github.com/gref11" target="_blank" class="nav-item">
-                <span>GitHub</span>
+            <a href="/login" target="_blank" class="nav-item">
+                <span>Войти</span>
             </a>
-            <a href="https://vk.com/grefalb" target="_blank" class="nav-item">
-                <span>VK</span>
+            <a href="/signup" target="_blank" class="nav-item">
+                <span>Зарегистрироваться</span>
             </a>
         </nav>
     </header>
     <section class="container">
         <article id="registr">
             <h2>Профиль</h2>
-            {{ if .Errors }}
-                <div class="message-error">
-                    <h3>Ошибки заполнения формы:</h3>
-                    <ul>
-                        {{ range $field, $message := .Errors }}
-                            <li>{{ $message }}</li>
-                        {{ end }}
-                    </ul>
+            {{ if .AuthorizationError }}
+                <div class="message-error"> 
+                    <h3>Для просмотра пользователя необходимо авторизоваться</h3>
                 </div>
+            {{ else }}
+                {{ if .Errors }}
+                    <div class="message-error">
+                        <h3>Ошибки заполнения формы:</h3>
+                        <ul>
+                            {{ range $field, $message := .Errors }}
+                                <li>{{ $message }}</li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                {{ end }}
+                <form action="/User/update/" method="post" id="regForm" class="vertical-container">
+                    <label for="fullName">ФИО:</label>
+                    <input class="w16 {{ if .Errors.Name }}field-error{{ end }}" type="text" id="fullName" name="fullName" value="{{ .Name }}" required>
+                    
+                    <label for="email">Email:</label>
+                    <input class="w16 {{ if .Errors.Email }}field-error{{ end }}" type="email" id="email" name="email" value="{{ .Email }}" required>
+                    
+                    <label for="phone">Телефон:</label>
+                    <input class="w16 {{ if .Errors.Tel }}field-error{{ end }}" type="tel" id="phone" name="phone" value="{{ .Tel }}" required>
+                    
+                    <label for="sex">Пол </label>
+                    <select class="w16" name="sex" id="sex" required>
+                        <option value="male" {{ if eq .Sex "male" }}selected{{ end }}>Мужской</option>
+                        <option value="female" {{ if eq .Sex "female" }}selected{{ end }}>Женский</option>
+                    </select>
+                    <label for="lang">Любимый язык программирования</label>
+                    <select class="w16" id="lang" name="lang" multiple="multiple" required>
+                        <option value="GoLang" {{ if in .Langs "GoLang" }}selected{{ end }}>GoLang</option>
+                        <option value="C" {{ if in .Langs "C" }}selected{{ end }}>C</option>
+                        <option value="C++" {{ if in .Langs "C++" }}selected{{ end }}>C++</option>
+                        <option value="JavaScript" {{ if in .Langs "JavaScript" }}selected{{ end }}>JavaScript</option>
+                        <option value="PHP" {{ if in .Langs "PHP" }}selected{{ end }}>PHP</option>
+                        <option value="Python" {{ if in .Langs "Python" }}selected{{ end }}>Python</option>
+                        <option value="Java" {{ if in .Langs "Java" }}selected{{ end }}>Java</option>
+                        <option value="Haskel" {{ if in .Langs "Haskel" }}selected{{ end }}>Haskel</option>
+                        <option value="Clojure" {{ if in .Langs "Clojure" }}selected{{ end }}>Clojure</option>
+                        <option value="Prolog" {{ if in .Langs "Prolog" }}selected{{ end }}>Prolog</option>
+                        <option value="Scala" {{ if in .Langs "Scala" }}selected{{ end }}>Scala</option>
+                    </select>
+                    <label for="bio">Биография</label>
+                    <textarea class="w32" name="bio" id="bio" required>{{ .Bio }}</textarea>
+                    <button class="w16" type="submit">Сохранить</button>
+                </form>
+                <script>
+                    
+                    </script>
+                <div id="responseMessage"></div>
             {{ end }}
-            <form action="/User/add/" method="post" id="regForm" class="vertical-container">
-                <label for="fullName">ФИО:</label>
-                <input class="w16 {{ if .Errors.Name }}field-error{{ end }}" type="text" id="fullName" name="fullName" value="{{ .Name }}" required>
-                
-                <label for="email">Email:</label>
-                <input class="w16 {{ if .Errors.Email }}field-error{{ end }}" type="email" id="email" name="email" value="{{ .Email }}" required>
-                
-                <label for="phone">Телефон:</label>
-                <input class="w16 {{ if .Errors.Tel }}field-error{{ end }}" type="tel" id="phone" name="phone" value="{{ .Tel }}" required>
-                
-                <label for="date">Дата рождения </label>
-                <input class="w16" type="date" name="date" id="date" value="{{ .Date }}" required>
-
-                <label for="sex">Пол </label>
-                <select class="w16" name="sex" id="sex" required>
-                    <option value="male" {{ if eq .Sex "male" }}selected{{ end }}>Мужской</option>
-                    <option value="female" {{ if eq .Sex "female" }}selected{{ end }}>Женский</option>
-                </select>
-                <label for="lang">Любимый язык программирования</label>
-                <select class="w16" id="lang" name="lang" multiple="multiple" required>
-                    <option value="GoLang" {{ if in .Langs "GoLang" }}selected{{ end }}>GoLang</option>
-                    <option value="C" {{ if in .Langs "C" }}selected{{ end }}>C</option>
-                    <option value="C++" {{ if in .Langs "C++" }}selected{{ end }}>C++</option>
-                    <option value="JavaScript" {{ if in .Langs "JavaScript" }}selected{{ end }}>JavaScript</option>
-                    <option value="PHP" {{ if in .Langs "PHP" }}selected{{ end }}>PHP</option>
-                    <option value="Python" {{ if in .Langs "Python" }}selected{{ end }}>Python</option>
-                    <option value="Java" {{ if in .Langs "Java" }}selected{{ end }}>Java</option>
-                    <option value="Haskel" {{ if in .Langs "Haskel" }}selected{{ end }}>Haskel</option>
-                    <option value="Clojure" {{ if in .Langs "Clojure" }}selected{{ end }}>Clojure</option>
-                    <option value="Prolog" {{ if in .Langs "Prolog" }}selected{{ end }}>Prolog</option>
-                    <option value="Scala" {{ if in .Langs "Scala" }}selected{{ end }}>Scala</option>
-                </select>
-                <label for="bio">Биография</label>
-                <textarea class="w32" name="bio" id="bio" required>{{ .Bio }}</textarea>
-                <button class="w16" type="submit">Сохранить</button>
-            </form>
-            <script>
-                
-                </script>
-            <div id="responseMessage"></div>
         </article>
     </section>
     <footer>

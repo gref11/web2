@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, User-scalable=no, maximum-scale=1.0">
+    <title>Stardew</title>
+    <link rel="stylesheet" href="/static/src/css/style.css">
+    <script src="/static/src/js/index.js" defer></script>
+</head>
+<body>
+    <div class="parallax-container top-container">
+        <img class="parallax" id="parallax2" src="/static/src/img/parallax2.png" alt="">
+        <img class="parallax" id="parallax3b" src="/static/src/img/parallax3b.png" alt="">
+        <img class="parallax" id="parallax3a" src="/static/src/img/parallax3a.png" alt="">
+    </div>
+    <header>
+        <div class="title-cont">
+            <img id="logo" src="/static/src/img/logo1.png" alt="">
+            <h1 id="title">Stardew</h1>
+        </div>
+        <nav>
+            <div class="nav-item" id="menu">
+                <span>Меню ∨</span>
+                <div id="menu-list" class="hidden">
+                    <a href="#registr"><span>Авторизация</span></a>
+                </div>
+            </div>
+            <a href="/login" target="_blank" class="nav-item">
+                <span>Войти</span>
+            </a>
+            <a href="/signup" target="_blank" class="nav-item">
+                <span>Зарегистрироваться</span>
+            </a>
+        </nav>
+    </header>
+    <section class="container">
+        <article id="registr">
+            <h2>Авторизация</h2>
+            {{ if .Error }}
+                <div class="message-error">
+                    <h3>{{ .Error }}</h3>
+                </div>
+            {{ end }}
+            <form action="/User/login/" method="post" id="regForm" class="vertical-container">
+                <label for="login">Логин:</label>
+                <input class="w16" type="text" id="login" name="login" required>
+                
+                <label for="password">Пароль:</label>
+                <input class="w16" type="password" id="password" name="password" required>
+                
+                
+                <button class="w16" type="submit">Войти</button>
+            </form>
+        </article>
+    </section>
+    <footer>
+        <img class="footer-bg" src="/static/src/img/parallax4.png" alt="">
+        <span>(c) Альберт Греф</span>
+    </footer>
+</body>
+</html>

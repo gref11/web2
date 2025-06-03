@@ -131,3 +131,9 @@ from
 
 
 insert into user_auth(user_id, login, password_hash) values (?, ?, ?);
+
+select name, tel, email, sex, bio from user where user_id = ?;
+
+select lang_name from lang join user_lang on lang.lang_id = user_lang.lang_id where user_id = ?;
+
+delete from user_lang where user_id = ?;
